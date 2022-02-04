@@ -29,9 +29,8 @@
     "incremental": false
   },
   "include": [
-    "./src",
-    "static",
-    "./next-env.d.ts"
+    "src",
+    "next-env.d.ts"
   ],
   "exclude": [
     "node_modules"
