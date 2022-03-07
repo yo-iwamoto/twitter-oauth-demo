@@ -12,8 +12,8 @@ export const useHooks = () => {
     const baseURL = new URL(CONST.TWITTER_AUTHORIZATION_URL);
     Object.entries({
       response_type: 'code',
-      client_id: ENV.TWITTER_CLIENT_ID,
-      redirect_uri: ENV.TWITTER_REDIRECT_URI,
+      client_id: ENV.PUBLIC.TWITTER_CLIENT_ID,
+      redirect_uri: ENV.PUBLIC.TWITTER_REDIRECT_URI,
       scope: ['offline.access', 'tweet.read', 'tweet.write'].join(' '),
     }).map(([key, value]) => baseURL.searchParams.append(key, value));
     return baseURL;

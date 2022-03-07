@@ -6,8 +6,8 @@ export const useHooks = () => {
   const router = useRouter();
 
   const issueToken = useCallback(async (code: string, codeVerifier: string) => {
-    const res = await axios.post<{token: string}>('/api/issueToken', { code, codeVerifier });
-    console.log(res.data.token)
+    const res = await axios.post<{ token: string }>('/api/issueToken', { code, codeVerifier });
+    console.log(res.data.token);
   }, []);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export const useHooks = () => {
 
     if (stateQuery !== localStorage.getItem('auth_state')) {
       alert('認証情報が誤っているため、トップページに戻ります');
-      void router.push('/')
+      void router.push('/');
       return;
     }
 
@@ -27,6 +27,6 @@ export const useHooks = () => {
       return;
     }
 
-    void issueToken(codeQuery, codeVerifier)
+    void issueToken(codeQuery, codeVerifier);
   }, [issueToken, router, router.query]);
 };
